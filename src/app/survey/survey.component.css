@@ -1,0 +1,8 @@
+.parallax-container {
+    height: 250px;
+    display: block;
+    background:rgba(0,0,0,0.6);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    opacity:1;
+}

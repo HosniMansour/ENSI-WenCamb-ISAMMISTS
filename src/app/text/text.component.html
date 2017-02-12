@@ -1,0 +1,77 @@
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center" style="color: white;">أصوات</h1>
+        </div>
+    </div>
+    <div class="parallax"><img src="/assets/dis.png" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 245px, 0px);"></div>
+</div>
+
+<div class="right-align">
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class=" btn-floating btn-large waves-effect waves-light red"><i class="material-icons" (click)="openModal()">add</i></a>
+</div>
+</div><!--end of div-->
+<div id="modal1" class="modal modal-fixed-footer" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <form dir="rtl" class="col s12" [formGroup]="storyForm" (ngSubmit)="addStory(storyForm.value)">
+      <br/>
+      <div class="modal-content">
+          <div class="row">
+              <label dir="rtl" for="title"><h3 style="color: black;" >صوتك</h3></label>
+              <input placeholder="عنوان" id="title" type="text" class="validate" [formControl]="storyForm.controls['titre']">
+          </div>
+          <div class="row">
+              <label for="textarea1">الموضوع</label>
+              <textarea id="textarea1" class="materialize-textarea" [formControl]="storyForm.controls['description']"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <a class="waves-effect waves-light btn-flat" (click)="closeModal()">أغلاق</a>
+          <button type="submit"   [disabled]="!storyForm.valid && submitted" class="modal-action  waves-effect waves-light btn-flat waves-effect blue">
+             أضف
+          </button>
+      </div>
+  </form>
+</div>
+<br/>
+
+<div class="row">
+    <div class="row">
+        <div class="col s4 " *ngFor="let story of stories | async">
+            <div class="row">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title"><h4 dir="rtl"><a  [routerLink]="['/text', story.$key]">{{ story.titre }}</a></h4></span>
+                        <p dir="rtl">{{ story.description.substring(0,145) }}...</p>
+
+                    </div>
+                    <!--<div>
+                        <div class="chip light-blue white-text">#فساد</div>
+                        <div class="chip light-blue white-text">#بلدية</div>
+                    </div> -->
+                    <div dir="rtl" class="card-action">
+                        <a  [routerLink]="['/text', story.$key]">مشاهدة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div class="container">
+    <div class="row center">
+        <ul class="pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+</div>
+-->

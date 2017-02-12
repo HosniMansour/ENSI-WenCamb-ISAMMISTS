@@ -1,0 +1,60 @@
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <br/><br/><br/>
+        <h4 class="header col s12 light" style="color:white;">أضافة استطلاع</h4>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="/assets/servey.jpeg" ></div>
+</div>
+<br/>
+
+<br>
+<div dir="rtl" class="row" class="right-align" style="margin-right : 100px; margin-left: 100px;">
+
+  <form [formGroup]="surveyForm" (ngSubmit)="addQuestion(surveyForm.value)">
+
+
+        <div clas ="col s6 m6">
+        <div class="input-field col s6 m4">
+              <h5>عنوان الإستطلاع :</h5>
+              <input placeholder="" type="text" class="validate" [formControl]="surveyForm.controls['question_titre']">
+            </div>
+        </div>
+
+           <div clas ="col s6 m6">
+        <div class="input-field col s6 m4">
+              <h6>السؤال :</h6>
+              <input placeholder="" type="text" class="validate" [formControl]="surveyForm.controls['question']">
+            </div>
+            </div>
+
+        <div class="col s11">
+          <h6>الإحتمالات :</h6>
+          <div dir="rtl" class="row">
+            <div class="input-field col s4">
+               <input placeholder="الإحتمال الثالث" type="text" class="validate" [formControl]="surveyForm.controls['choix3']">
+            </div>
+
+            <div class="input-field col s4">
+              <input placeholder="الإحتمال الثاني" type="text" class="validate" [formControl]="surveyForm.controls['choix2']">
+            </div>
+              <div class="input-field col s4">
+                <input placeholder="الإحتمال الأول" type="text" class="validate" [formControl]="surveyForm.controls['choix1']">
+            </div>
+          </div>
+
+         <button type="submit"   [disabled]="!surveyForm.valid && submitted" style="margin-bottom: 20px" class="left waves-effect waves-light btn"><i class="material-icons right">person_pin</i>أضافة الاستطلاع</button>
+   </div>
+
+</form>
+
+</div>
+
+
+
+
+<br/>
+<br/>

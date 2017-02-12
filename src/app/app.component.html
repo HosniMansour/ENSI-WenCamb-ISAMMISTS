@@ -1,0 +1,18 @@
+ <nav class="white">
+     <div class="nav-wrapper container">
+         <ul id="nav-mobile" dir="rtl" class="left hide-on-med-and-down">
+             <li [hidden]="authenticated"><a [routerLink]="['/login']" style="color: black;"><i class="material-icons">account_box</i></a></li>
+             <li [hidden]="!authenticated"><a (click)="logout()"   style="color: black;" >خروج </a></li>
+             <li [hidden]="!authenticated"><a [routerLink]="['/survey']" style="color: black;" >أستطلاع</a></li>
+             <li [hidden]="!authenticated"><a [routerLink]="['/text']" style="color: black;" >صوتك</a></li>
+             <li [hidden]="!authenticated"><a [routerLink]="['/videos']" style="color: black;" >فيديوهات</a></li>
+             <li ><a [routerLink]="['/home']" style="color: black;" >الرئيسية</a></li>
+             <a [routerLink]="['/home']" dir="rtl" class="right brand-logo" style="color: black;" >صوت تونسي  <div class="right"><img height="50" style="margin-left: 20px" src="/assets/flag.png"/></div></a>
+         </ul>
+     </div>
+ </nav>
+
+ <!-- <div class="container"> -->
+ <router-outlet></router-outlet>
+
+ <!--</div>-->
